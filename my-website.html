@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fish and Wildlife Disease Lab</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f5f7f9;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background-color: #004b6b;
+      color: white;
+      text-align: center;
+      padding: 1rem 0;
+    }
+
+    .container {
+      display: flex;
+      flex: 1;
+      border-top: 2px solid #004b6b;
+    }
+
+    /* LEFT COLUMN */
+    .sidebar {
+      width: 35%;
+      background-color: #eef6fa;
+      padding: 2rem;
+      border-right: 2px solid #004b6b;
+      box-sizing: border-box;
+    }
+
+    .sidebar h2 {
+      color: #004b6b;
+      margin-top: 0;
+    }
+
+    nav {
+      margin-top: 1.5rem;
+      display: flex;
+      flex-direction: column;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #004b6b;
+      font-weight: bold;
+      margin: 0.5rem 0;
+      padding: 0.5rem;
+      border-radius: 6px;
+      transition: background-color 0.3s;
+      cursor: pointer;
+    }
+
+    nav a:hover {
+      background-color: #d5eaf2;
+    }
+
+    /* RIGHT COLUMN */
+    .content {
+      flex: 1;
+      padding: 2rem;
+      box-sizing: border-box;
+      background-color: white;
+    }
+
+    .content h2 {
+      color: #004b6b;
+      margin-top: 0;
+    }
+
+    .news-item {
+      background-color: #eef6fa;
+      border-left: 4px solid #004b6b;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-radius: 5px;
+    }
+
+    footer {
+      background-color: #004b6b;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    /* MOBILE RESPONSIVE DESIGN */
+    @media (max-width: 800px) {
+      .container {
+        flex-direction: column;
+      }
+
+      .sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 2px solid #004b6b;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Fish and Wildlife Disease Lab</h1>
+    <p>Dr. Pedro Viadanna, DVM, PhD, CertAqV</p>
+    <p>Assistant Professor</p>
+    <p>Department of Fish and Wildlife Sciences, College of Natural Resources, University of Idaho</p>
+  </header>
+
+  <div class="container">
+    <!-- LEFT COLUMN -->
+    <div class="sidebar">
+      <h2>About the Lab</h2>
+      <p>Our lab investigates aquatic animal health and wildlife disease, combining field surveillance, diagnostics, molecular tools, and mathematical models to address pressing aquatic animal challenges.</p>
+      
+      <nav>
+        <a onclick="showSection('lab')">Bio</a>
+        <a onclick="showSection('presentation')">Our Group</a>
+        <a onclick="showSection('research')">Research from Our Group</a>
+        <a onclick="showSection('teaching')">Teaching</a>  
+      </nav>
+    </div>
+
+    <!-- RIGHT COLUMN -->
+    <div class="content" id="content">
+      <!-- Default Section: News -->
+      <h2>News & Updates</h2>
+
+      <div class="news-item">
+        <h3>New Publication – October 2025</h3>
+        <p>Our latest paper on amphibian pathogen dynamics has been published in <em>Conservation Biology</em>.</p>
+      </div>
+
+      <div class="news-item">
+        <h3>Welcome to a New Team Member</h3>
+        <p>We are thrilled to welcome Dr. Jane Smith, who will lead work on viral surveillance in fish populations.</p>
+      </div>
+
+      <div class="news-item">
+        <h3>Upcoming Event</h3>
+        <p>Join us at the 2025 International Conference on Aquatic Animal Health, where we’ll present new findings on global trade risks.</p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Fish and Wildlife Disease Lab | University of Idaho</p>
+  </footer>
+
+<script>
+  function showSection(section) {
+    const content = document.getElementById("content");
+    let html = "";
+
+    switch(section) {
+      case "lab":
+        html = `
+          <h2>Bio</h2>
+          <p>I am Dr. Pedro Viadanna, a veterinarian passionate about fish health, wildlife conservation, and the integration of aquatic animal health into the broader One Health framework. My research focuses on understanding and managing diseases in fish and amphibians, especially those with implications for biodiversity and ecosystem balance.</p>
+          <p>I have over 15 years of experience in aquatic animal health, diagnostics, and research. I am dedicated to building collaborations that improve our ability to prevent, detect, and mitigate the impacts of aquatic diseases across farmed and wild populations.</p>
+          <p>My goal is to support sustainable aquaculture and healthy ecosystems through science-based approaches, education, and outreach.</p>
+        `;
+        break;
+
+      case "presentation":
+        html = `
+          <h2>Our Group</h2>
+          <p>The Fish and Wildlife Disease Lab is a multidisciplinary team of researchers, graduate students, and collaborators working to understand disease dynamics in aquatic systems. We combine laboratory, field, and computational approaches to study emerging pathogens and their impacts on fish and wildlife health.</p>
+          <p>Our group values collaboration, mentorship, and scientific integrity. We strive to train the next generation of scientists and resource managers who can tackle complex challenges at the interface of aquatic health, conservation, and sustainability.</p>
+        `;
+        break;
+
+      case "research":
+        html = `
+          <h2>Research from Our Group</h2>
+          <ul>
+            <li><strong>Amphibian Pathogen Surveillance:</strong> Monitoring the spread and dynamics of pathogens in the global amphibian trade.</li>
+            <li><strong>Fish Virology:</strong> Detection and prevention of emerging viral diseases in aquaculture systems.</li>
+            <li><strong>Biosecurity Practices:</strong> Identifying strategies to reduce pathogen spillover from captive to wild populations.</li>
+            <li><strong>Genomics and Diagnostics:</strong> Developing molecular tools for early detection and risk assessment of aquatic pathogens.</li>
+          </ul>
+        `;
+        break;
+
+      case "teaching":
+        html = `
+          <h2>Teaching</h2>
+          <p>I am deeply committed to teaching and mentoring students in aquatic animal health, fish pathology, and One Health. My teaching philosophy is centered on critical thinking, hands-on learning, and linking theoretical knowledge to real-world applications.</p>
+          <p>Courses I have taught and contributed to include:</p>
+          <ul>
+            <li>Fish Health and Disease Diagnostics</li>
+            <li>Aquatic Pathobiology</li>
+            <li>One Health and Emerging Diseases</li>
+            <li>Wildlife Disease Ecology</li>
+          </ul>
+          <p>Through teaching, I aim to empower students to become thoughtful scientists and professionals who make evidence-based decisions for aquatic resource management.</p>
+        `;
+        break;
+
+      default:
+        html = `
+          <h2>News & Updates</h2>
+          <div class="news-item">
+            <h3>New Publication – October 2025</h3>
+            <p>Our latest paper on amphibian pathogen dynamics has been published in <em>Conservation Biology</em>.</p>
+          </div>
+          <div class="news-item">
+            <h3>Welcome to a New Team Member</h3>
+            <p>We are thrilled to welcome Dr. Jane Smith, who will lead work on viral surveillance in fish populations.</p>
+          </div>
+          <div class="news-item">
+            <h3>Upcoming Event</h3>
+            <p>Join us at the 2025 International Conference on Aquatic Animal Health, where we’ll present new findings on global trade risks.</p>
+          </div>
+        `;
+    }
+
+    content.innerHTML = html;
+  }
+</script>
+
+</body>
+</html>
